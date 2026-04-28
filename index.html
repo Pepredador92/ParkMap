@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ParkMap: marcación manual de lugares disponibles en un estacionamiento." />
+    <title>ParkMap</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Operación de estacionamiento</p>
+          <h1>ParkMap</h1>
+          <p class="hero__description">
+            Marca manualmente lugares disponibles sobre el plano, guarda la información en el navegador y recupérala al volver a abrir la página.
+          </p>
+        </div>
+
+        <div class="hero__stats" aria-live="polite">
+          <article class="stat-card">
+            <span class="stat-card__label">Total disponible</span>
+            <strong id="total-count" class="stat-card__value">0</strong>
+          </article>
+          <article class="stat-card stat-card--accent">
+            <span class="stat-card__label">Carro chico</span>
+            <strong id="small-count" class="stat-card__value">0</strong>
+          </article>
+          <article class="stat-card stat-card--accent-2">
+            <span class="stat-card__label">Carro mediano</span>
+            <strong id="medium-count" class="stat-card__value">0</strong>
+          </article>
+          <article class="stat-card stat-card--accent-3">
+            <span class="stat-card__label">Carro grande</span>
+            <strong id="large-count" class="stat-card__value">0</strong>
+          </article>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="panel controls-panel" aria-labelledby="controls-title">
+          <div class="panel__header">
+            <h2 id="controls-title">Controles</h2>
+            <p>Selecciona el tipo de lugar antes de marcar sobre el plano.</p>
+          </div>
+
+          <div class="segmented-control" id="vehicle-size-selector" role="group" aria-label="Seleccionar tamaño de lugar">
+            <button type="button" class="segmented-control__button is-active" data-size="chico" aria-pressed="true">Carro chico</button>
+            <button type="button" class="segmented-control__button" data-size="mediano" aria-pressed="false">Carro mediano</button>
+            <button type="button" class="segmented-control__button" data-size="grande" aria-pressed="false">Carro grande</button>
+          </div>
+
+          <div class="controls-panel__actions">
+            <button type="button" id="clear-all-button" class="button button--danger">Limpiar todas las marcas</button>
+            <p id="status-message" class="status-message" role="status" aria-live="polite">Listo para agregar marcas.</p>
+          </div>
+        </section>
+
+        <section class="panel map-panel" aria-labelledby="map-title">
+          <div class="panel__header">
+            <h2 id="map-title">Plano del estacionamiento</h2>
+            <p>Toca o haz clic sobre el plano para agregar una marca. Toca una marca para eliminarla.</p>
+          </div>
+
+          <div id="parking-plan" class="parking-plan" aria-label="Plano interactivo del estacionamiento">
+            <img id="parking-plan-image" class="parking-plan__image" src="assets/ParkingMap.png" alt="Plano del estacionamiento" />
+            <div id="marker-layer" class="parking-plan__marker-layer" aria-hidden="false"></div>
+            <div id="plan-empty-state" class="plan-empty-state" hidden>
+              <strong>No se encontró la imagen del plano.</strong>
+              <span>Coloca el archivo assets/ParkingMap.png para ver el plano real.</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

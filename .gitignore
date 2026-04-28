@@ -1,0 +1,14 @@
+# Node / editor
+node_modules/
+.vscode/
+.DS_Store
+
+# Environment and secrets
+.env
+js/firebase-config.js
+
+# OS
+Thumbs.db
+
+# Logs
+npm-debug.log*
