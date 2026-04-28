@@ -5,7 +5,7 @@ node_modules/
 
 # Environment and secrets
 .env
-js/firebase-config.js
+# js/firebase-config.js (if you intend to keep credentials out of git, add this file locally)
 
 # OS
 Thumbs.db
