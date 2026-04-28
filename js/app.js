@@ -1,4 +1,4 @@
-import { database, onValue, push, ref, remove, set } from "./firebase-config.js";
+import { database, ref, push, remove, onValue } from "./firebase-config.js";
 import { countMarkersBySize, createMarkerRecord, markersFromFirebaseSnapshot, renderMarkers } from "./markers.js";
 import { getSelectedSize, loadSelectedSizePreference, saveSelectedSizePreference, setActiveSizeButton, setPlanEmptyState, showStatus, updateCounters } from "./ui.js";
 
@@ -69,13 +69,10 @@ function handleAddMarker(event) {
     y: coordinates.y,
     size: SIZE_ORDER.includes(selectedSize) ? selectedSize : STORAGE_FALLBACK_SIZE,
   });
+  // Push the marker value; the generated key will be visible in the database snapshot.
+  const write = push(state.markersRef, marker);
 
-  const markerRef = push(state.markersRef);
-
-  set(markerRef, {
-    ...marker,
-    id: markerRef.key,
-  })
+  Promise.resolve(write)
     .then(() => {
       showStatus(dom.statusMessage, `Lugar ${marker.size} agregado.`, "success");
     })
