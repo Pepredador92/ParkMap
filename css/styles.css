@@ -326,8 +326,8 @@ img {
   position: absolute;
   display: inline-grid;
   place-items: center;
-  width: 1%;
-  height: 1%;
+  width: 1.5%;
+  height: 1.5%;
   padding: 0;
   border: 1px solid white;
   border-radius: 999px;
