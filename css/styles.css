@@ -326,8 +326,8 @@ img {
   position: absolute;
   display: inline-grid;
   place-items: center;
-  width: 17px;
-  height: 17px;
+  width: 10px;
+  height: 10px;
   padding: 0;
   border: 1px solid white;
   border-radius: 999px;
@@ -351,17 +351,17 @@ img {
 
 .parking-marker--chico {
   background: linear-gradient(135deg, #1e88e5, #1666b2);
-  color: #1e88e5;
+  color: #1e39e5;
 }
 
 .parking-marker--mediano {
   background: linear-gradient(135deg, #1f9d63, #177247);
-  color: #1f9d63;
+  color: #0e7c49;
 }
 
 .parking-marker--grande {
   background: linear-gradient(135deg, #e04f39, #c03c2a);
-  color: #e04f39;
+  color: #d9422b;
 }
 
 .parking-marker:focus-visible,
